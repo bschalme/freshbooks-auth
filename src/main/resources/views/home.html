@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Micronaut - FreshBooks example</h1>
+
+    <h2 th:if="${security}">username: <span th:text="${security.name}"></span></h2>
+    <h2 th:unless="${security}">username: Anonymous</h2>
+
+    <nav>
+        <ul>
+            <li th:unless="${security}"><a href="/oauth/login/freshbooks">Enter</a></li>
+            <li th:if="${security}"><a href="/oauth/logout">Logout</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

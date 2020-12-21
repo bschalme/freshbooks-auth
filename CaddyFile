@@ -1,0 +1,6 @@
+{$APP_URL} {
+    root * /var/www/app/public
+    reverse_proxy app:8080
+    encode zstd gzip
+    file_server browse
+}
