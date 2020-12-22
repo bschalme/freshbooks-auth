@@ -22,6 +22,7 @@ micronaut {
 }
 
 dependencies {
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
     annotationProcessor("io.micronaut.security:micronaut-security-annotations")
     annotationProcessor "io.micronaut:micronaut-inject-java"
     implementation("io.micronaut:micronaut-validation")
@@ -31,6 +32,7 @@ dependencies {
     implementation("io.micronaut.views:micronaut-views-thymeleaf")
     implementation("io.micronaut.security:micronaut-security-oauth2")
     implementation("io.micronaut.security:micronaut-security-jwt")
+    compileOnly "org.projectlombok:lombok:$lombokVersion"
     runtimeOnly("ch.qos.logback:logback-classic")
 }
 

@@ -9,6 +9,10 @@
         </encoder>
     </appender>
 
+    <logger name="ca.airspeed" level="debug" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
     <logger name="io.micronaut.http" level="debug" additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
