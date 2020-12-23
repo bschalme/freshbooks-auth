@@ -1,6 +1,9 @@
 {$APP_URL} {
-    root * /var/www/app/public
-    reverse_proxy app:8080
+    reverse_proxy {
+        to app:443
+        transport http {
+            tls_insecure_skip_verify
+        }
+    }
     encode zstd gzip
-    file_server browse
 }

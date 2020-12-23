@@ -1,6 +1,7 @@
 FROM amazoncorretto:11-alpine-jdk
 VOLUME /tmp
 EXPOSE 8080
+EXPOSE 443
 
 LABEL maintainer="Brian Schalme <bschalme@airspeed.ca>"
 
