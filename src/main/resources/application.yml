@@ -10,13 +10,16 @@ micronaut:
           client-secret: '${OAUTH_CLIENT_SECRET}'
           authorization:
             url: https://auth.freshbooks.com/service/auth/oauth/authorize
+          scopes: admin:all:legacy
           token:
             url: https://api.freshbooks.com/auth/oauth/token
             auth-method: client-secret-post
-          scopes: admin:all:legacy
+          revocation:
+            url: https://api.freshbooks.com/auth/oauth/revoke
+            auth-method: client-secret-post
     endpoints:
       logout:
-        get-allowed: false
+        get-allowed: true
     reject-not-found: false
     token:
       jwt:
