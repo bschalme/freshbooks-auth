@@ -12,6 +12,12 @@ repositories {
     jcenter()
 }
 
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(11))
+    }
+}
+
 micronaut {
     runtime("netty")
     testRuntime("junit5")
