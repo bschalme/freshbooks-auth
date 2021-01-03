@@ -47,11 +47,6 @@ application {
     mainClass.set("ca.airspeed.Application")
 }
 
-java {
-    sourceCompatibility = JavaVersion.toVersion("11")
-    targetCompatibility = JavaVersion.toVersion("11")
-}
-
 tasks {
 
 
