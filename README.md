@@ -6,7 +6,7 @@ using the OAuth 2.0 Authorization Code grant and [Micronaut](https://micronaut.i
 
 To get this example working, you'll need to set up an account at [FreshBooks](https://www.freshbooks.com), 
 and then use their [Developer Portal](https://my.freshbooks.com/#/developer) to define an Application. 
-They have a free tier.
+They have a 30-day free trial.
 
 Back here, copy `sentenv-sample` to `setenv`, and chmod +x it. Do the same for `envfile-sample`, copying it to 
 `envfile`.
@@ -17,7 +17,7 @@ populate `OAUTH_CLIENT_ID` and `OAUTH_CLIENT_SECRET` in setenv and envfile.
 Make up a 256-bit JWT key and use it to populate `JWT_SECRET` in sentenv and envfile. I used 
 [RandomKeygen](https://randomkeygen.com) to generate my 256-bit key.
 
-Make sure you're using Java 11 or greater.
+Make sure you're using Java 11.
 
 Dot-execute setenv  to set those three environment variables:
 
