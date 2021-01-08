@@ -29,7 +29,7 @@ public class FreshBooksLogoutController {
 
     @Get("/oauth/logout")
     @Secured(IS_AUTHENTICATED)
-    public HttpResponse logout(Authentication auth) throws URISyntaxException {
+    public Single<HttpResponse<String>> logout(Authentication auth) throws URISyntaxException {
         Map<String, Object> attributes = auth.getAttributes();
         log.debug("Access Token is '{}'.", attributes.get(ACCESS_TOKEN_KEY));
         log.debug("Client ID is '{}'.", clientConfiguration.getClientId());
@@ -40,10 +40,12 @@ public class FreshBooksLogoutController {
                 .clientSecret(clientConfiguration.getClientSecret())
                 .token((String) attributes.get(ACCESS_TOKEN_KEY))
                 .build();
-        HttpResponse<String> response = freshBooksApiClient.revokeToken(body);
-        log.debug("Response {} - {}.", response.getStatus().getCode(), response.getStatus().getReason());
-        String redirectUri = oauthConfiguration.getOpenid().getEndSession().get().getRedirectUri();
-        log.debug("Logout redirect URI is '{}'", redirectUri);
-        return HttpResponse.seeOther(new URI(redirectUri));
+        return freshBooksApiClient.revokeToken(body)
+                .map(httpResponse -> {
+                    log.debug("Response {} - {}.", httpResponse.getStatus().getCode(), httpResponse.getStatus().getReason());
+                    String redirectUri = oauthConfiguration.getOpenid().getEndSession().orElseThrow().getRedirectUri();
+                    log.debug("Logout redirect URI is '{}'", redirectUri);
+                    return HttpResponse.seeOther(new URI(redirectUri));                    
+                });
     }
 }

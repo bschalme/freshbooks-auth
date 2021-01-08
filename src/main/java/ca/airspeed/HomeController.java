@@ -9,6 +9,7 @@ import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.security.annotation.Secured;
 import io.micronaut.views.View;
+import io.reactivex.Flowable;
 
 @Controller
 public class HomeController {
@@ -16,8 +17,8 @@ public class HomeController {
     @Secured(IS_ANONYMOUS)
     @View("home")
     @Get
-    public Map<String, Object> index() {
-        return new HashMap<>();
+    public Flowable<Map<String, Object>> index() {
+        return Flowable.just(new HashMap<>());
     }
 
 }
