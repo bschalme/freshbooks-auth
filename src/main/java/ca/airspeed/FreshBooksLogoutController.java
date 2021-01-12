@@ -3,7 +3,6 @@ package ca.airspeed;
 import static io.micronaut.security.oauth2.endpoint.token.response.OauthUserDetailsMapper.ACCESS_TOKEN_KEY;
 import static io.micronaut.security.rules.SecurityRule.IS_AUTHENTICATED;
 
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Map;
 
@@ -15,7 +14,6 @@ import io.micronaut.security.annotation.Secured;
 import io.micronaut.security.authentication.Authentication;
 import io.micronaut.security.handlers.LogoutHandler;
 import io.micronaut.security.oauth2.configuration.OauthClientConfiguration;
-import io.micronaut.security.oauth2.configuration.OauthConfiguration;
 import io.reactivex.Single;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -29,7 +27,7 @@ public class FreshBooksLogoutController {
     private final FreshBooksApiClient freshBooksApiClient;
     private final LogoutHandler logoutHandler;
 
-    @Get("/oauth/logout")
+    @Get("/oauth/logout/freshbooks")
     @Secured(IS_AUTHENTICATED)
     public Single<HttpResponse<?>> logout(HttpRequest<?> request,
                                           Authentication auth) throws URISyntaxException {
