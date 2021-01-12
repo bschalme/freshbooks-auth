@@ -44,8 +44,3 @@ dependencies {
 application {
     mainClass.set("ca.airspeed.Application")
 }
-
-tasks {
-
-
-}
