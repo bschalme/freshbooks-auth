@@ -17,8 +17,8 @@ public class HomeController {
     @Secured(IS_ANONYMOUS)
     @View("home")
     @Get
-    public Flowable<Map<String, Object>> index() {
-        return Flowable.just(new HashMap<>());
+    public Map<String, Object> index() {
+        return new HashMap<>();
     }
 
 }
