@@ -9,7 +9,6 @@ import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.security.annotation.Secured;
 import io.micronaut.views.View;
-import io.reactivex.Flowable;
 
 @Controller
 public class HomeController {
